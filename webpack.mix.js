@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+require('laravel-mix-purgecss');
 
 // Public path helper
 const publicPath = path => `${mix.config.publicPath}/${path}`;
@@ -22,23 +23,23 @@ mix
   .setPublicPath('./dist')
   .setResourceRoot(`/app/themes/sage/${mix.config.publicPath}/`)
   .webpackConfig({
-    output: { publicPath: mix.config.resourceRoot }
+    output: {publicPath: mix.config.resourceRoot}
   });
 
 // Browsersync
-mix.browserSync('example.test');
+mix.browserSync('tech-bits.website');
 
 // Styles
 mix.sass(src`styles/app.scss`, 'styles');
 
 // JavaScript
 mix.js(src`scripts/app.js`, 'scripts')
-   .js(src`scripts/customizer.js`, 'scripts')
-   .extract();
+  .js(src`scripts/customizer.js`, 'scripts')
+  .extract();
 
 // Assets
 mix.copyDirectory(src`images`, publicPath`images`)
-   .copyDirectory(src`fonts`, publicPath`fonts`);
+  .copyDirectory(src`fonts`, publicPath`fonts`);
 
 // Autoload
 mix.autoload({
@@ -48,10 +49,16 @@ mix.autoload({
 // Options
 mix.options({
   processCssUrls: false,
+  postCss: [require('tailwindcss')('./tailwind.config.js')],
 });
+
+mix.purgeCss();
 
 // Source maps when not in production.
 mix.sourceMaps(false, 'source-map');
 
 // Hash and version files in production.
-mix.version();
+if (mix.inProduction()) {
+  mix.version();
+}
+

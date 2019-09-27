@@ -1,30 +1,32 @@
 /**
- * External Dependencies
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
  */
-import 'jquery';
-import 'bootstrap';
-import { router } from 'js-dom-router';
+
+require('./bootstrap');
+
+window.Vue = require('vue');
 
 /**
- * DOM-based routing
+ * The following block of code may be used to automatically register your
+ * Vue components. It will recursively scan this directory for the Vue
+ * components and automatically register them with their "basename".
+ *
+ * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
-import about from './routes/about';
+
+// const files = require.context('./', true, /\.vue$/i);
+// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+
+// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /**
- * Below is an example of a dynamic import; it will not be loaded until it's needed.
- *
- * See: {@link https://webpack.js.org/guides/code-splitting/#dynamic-imports | Dynamic Imports}
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
  */
-const home = async () => import(/* webpackChunkName: "scripts/routes/home" */ './routes/home');
 
-/**
- * Set up DOM router
- *
- * .on(<name of body class>, callback)
- *
- * See: {@link http://goo.gl/EUTi53 | Markup-based Unobtrusive Comprehensive DOM-ready Execution} by Paul Irish
- */
-router
-  .on('about-us', about)
-  .on('home', async (event) => (await home()).default(event))
-  .ready();
+const app = new Vue({
+  el: '#app',
+});
