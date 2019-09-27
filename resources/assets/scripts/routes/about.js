@@ -1,0 +1,6 @@
+/**
+ * About Us
+ */
+export default () => {
+  //--
+};

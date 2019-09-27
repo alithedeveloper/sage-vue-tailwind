@@ -1,0 +1,48 @@
+{
+  "private": true,
+  "browserslist": [
+    "extends @wordpress/browserslist-config"
+  ],
+  "scripts": {
+    "build": "cross-env NODE_ENV=development run-s mix",
+    "build:production": "cross-env NODE_ENV=production run-s clean mix",
+    "start": "cross-env NODE_ENV=development run-s \"mix -- --watch\"",
+    "hot": "cross-env NODE_ENV=development run-s build mix:hot",
+    "mix": "webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "mix:hot": "webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "clean": "run-p clean:*",
+    "clean:dist": "rimraf dist",
+    "clean:views": "rimraf storage/framework/views/*.php",
+    "lint": "run-s -c lint:*",
+    "lint:scripts": "eslint resources/assets/scripts",
+    "lint:styles": "stylelint \"resources/assets/**/*.{vue,css,sass,scss,sss,less}\"",
+    "test": "run-s -c lint",
+    "translate": "run-s translate:*",
+    "translate:pot": "wp i18n make-pot . ./resources/languages/sage.pot --ignore-domain --include=\"app,resources/assets,resources/views\"",
+    "translate:js": "wp i18n make-json ./resources/languages --no-purge --pretty-print"
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.2",
+    "@wordpress/browserslist-config": "^2.6.0",
+    "babel-eslint": "^10.0.3",
+    "browser-sync": "^2.26",
+    "browser-sync-webpack-plugin": "2.2",
+    "cross-env": "^5.2.1",
+    "eslint": "^6.3.0",
+    "eslint-plugin-import": "^2.18",
+    "laravel-mix": "^4.1",
+    "npm-run-all": "^4.1",
+    "rimraf": "^3.0",
+    "sass": "^1.22",
+    "sass-loader": "7.*",
+    "stylelint": "^10.1",
+    "stylelint-config-standard": "^18.2",
+    "vue-template-compiler": "^2.6"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3",
+    "jquery": "^3.4",
+    "js-dom-router": "^1.0",
+    "popper.js": "^1.15"
+  }
+}

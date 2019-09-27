@@ -1,0 +1,6 @@
+/**
+ * Home
+ */
+export default () => {
+  //--
+};
