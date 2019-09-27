@@ -7,7 +7,7 @@
     @php(do_action('get_header'))
     @include('partials.header')
 
-    <div class="wrap container">
+    <div id="app">
       <div class="content">
         <main class="main">
           @yield('content')
