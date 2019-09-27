@@ -1,10 +1,5 @@
 # [Sage](https://roots.io/sage/)
 
-[![Packagist](https://img.shields.io/packagist/vpre/roots/sage.svg?style=flat-square)](https://packagist.org/packages/roots/sage)
-[![devDependency Status](https://img.shields.io/david/dev/roots/sage.svg?style=flat-square)](https://david-dm.org/roots/sage#info=devDependencies)
-[![Build Status](https://img.shields.io/circleci/project/github/roots/sage/10.0.0-dev.svg?style=flat-square)](https://circleci.com/gh/roots/sage)
-[![Follow Roots](https://img.shields.io/twitter/follow/rootswp.svg?style=flat-square&color=1da1f2)](https://twitter.com/rootswp)
-
 Sage is a WordPress starter theme with a modern development workflow.
 
 ## Features
@@ -14,9 +9,8 @@ Sage is a WordPress starter theme with a modern development workflow.
 * [Laravel Mix](https://github.com/JeffreyWay/laravel-mix) for compiling assets and concatenating and minifying files
 * [Browsersync](http://www.browsersync.io/) for synchronized browser testing
 * [Blade](https://laravel.com/docs/5.8/blade) as a templating engine
-* CSS framework (optional): [Bootstrap 4](https://getbootstrap.com/), [Bulma](https://bulma.io/), [Foundation](https://foundation.zurb.com/), [Tachyons](http://tachyons.io/), [Tailwind](https://tailwindcss.com/)
-
-See a working example at [roots-example-project.com](https://roots-example-project.com/).
+* [Tailwind CSS](https://tailwindcss.com/) Utility based CSS framework
+* [Vue](https://vuejs.org/v2/guide/) JS framework
 
 ## Requirements
 
@@ -30,20 +24,17 @@ Make sure all dependencies have been installed before moving on:
 
 ## Theme installation
 
-Install Sage using Composer from your WordPress themes directory (replace `your-theme-name` below with the name of your theme):
+This readme assumes you are familiar with [Sage](https://github.com/roots/sage) and [Bedrock](https://github.com/roots/bedrock) structure for Wordpress. If not, head over to [https://roots.io/](https://roots.io/) to learn more.
 
 ```sh
 # @ app/themes/ or wp-content/themes/
-$ composer create-project roots/sage your-theme-name
+$ git clone git@github.com:alithedeveloper/sage-vue-tailwind.git
+$ cd sage-vue-tailwind
+$ composer install
+$ yarn
+$ yarn dev / production / watch
 ```
 
-To install the latest development version of Sage, add `dev-master` to the end of the command:
-
-```shell
-$ composer create-project roots/sage your-theme-name dev-master
-```
-
-During theme installation you will have options to update `style.css` theme headers, select a CSS framework, and configure Browsersync.
 
 ## Theme structure
 
@@ -104,22 +95,6 @@ Edit `app/setup.php` to enable or disable theme features, setup navigation menus
 
 * [Sage documentation](https://roots.io/sage/docs/)
 
-## Contributing
 
-Contributions are welcome from everyone. We have [contributing guidelines](https://github.com/roots/guidelines/blob/master/CONTRIBUTING.md) to help you get started.
 
-## Sage sponsors
 
-Help support our open-source development efforts by [becoming a patron](https://www.patreon.com/rootsdev).
-
-<a href="https://kinsta.com/?kaid=OFDHAJIXUDIV"><img src="https://cdn.roots.io/app/uploads/kinsta.svg" alt="Kinsta" width="200" height="150"></a> <a href="https://k-m.com/"><img src="https://cdn.roots.io/app/uploads/km-digital.svg" alt="KM Digital" width="200" height="150"></a>
-
-## Community
-
-Keep track of development and community news.
-
-* Participate on the [Roots Discourse](https://discourse.roots.io/)
-* Follow [@rootswp on Twitter](https://twitter.com/rootswp)
-* Read and subscribe to the [Roots Blog](https://roots.io/blog/)
-* Subscribe to the [Roots Newsletter](https://roots.io/subscribe/)
-* Listen to the [Roots Radio podcast](https://roots.io/podcast/)
