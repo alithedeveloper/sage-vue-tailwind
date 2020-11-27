@@ -40,7 +40,7 @@
     "vue-template-compiler": "^2.6"
   },
   "dependencies": {
-    "jquery": "^3.4",
+    "jquery": "^3.5",
     "laravel-mix-purgecss": "^4.1.0",
     "laravel-mix-tailwind": "^0.1.0",
     "popper.js": "^1.15",
