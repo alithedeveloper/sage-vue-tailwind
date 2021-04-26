@@ -32,7 +32,7 @@ $ git clone git@github.com:alithedeveloper/sage-vue-tailwind.git
 $ cd sage-vue-tailwind
 $ composer install
 $ yarn
-$ yarn dev / production / watch
+$ yarn start / build / build:production
 ```
 
 
